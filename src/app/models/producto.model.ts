@@ -3,4 +3,5 @@ export interface Producto{
     title:string;
     price:number;
     images:string[];
+    description:string;
 }

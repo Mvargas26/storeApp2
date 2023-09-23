@@ -1,31 +1,18 @@
 <div class="container-fluid p-0">
     <div class="row g-0">
-        <div class="col-lg-4 col-sm-6" *ngIf="Producto">
-            <a class="portfolio-box" href="{{Producto.images[0]}}" title="{{Producto.title}}">
-                <img class="img-fluid" [ngSrc]=Producto.images[0] width="640" height="480"/>
-                <div class="portfolio-box-caption">
-                    <div class="project-category text-white-50">Producto: {{Producto.title}}</div>
-                    <div class="project-name">Precio: ${{Producto.price}}</div>
-                </div>
-            </a>
+      <ng-container *ngFor="let group of getProductGroups(ArrayProductos, 3)">
+        <div class="col-lg-4 col-sm-6" *ngFor="let Producto of group">
+          <a class="portfolio-box" href="{{Producto.images[0]}}" title="{{Producto.title}}">
+            <img class="img-fluid" [ngSrc]="Producto.images[0]" width="640" height="640" />
+            <div class="portfolio-box-caption">
+              <div class="project-category text-white-50">Producto: {{Producto.title}}</div>
+              <hr>
+              <div class="project-name">Precio: ${{Producto.price}}</div>
+              <hr>
+              <div class="project-name">Detalle: {{Producto.description}}</div>
+            </div>
+          </a>
         </div>
-        <div class="col-lg-4 col-sm-6" *ngIf="Producto">
-            <a class="portfolio-box" href="{{Producto.images[1]}}" title="{{Producto.title}}">
-                <img class="img-fluid" [ngSrc]=Producto.images[1] width="640" height="480"/>
-                <div class="portfolio-box-caption">
-                    <div class="project-category text-white-50">Producto: {{Producto.title}}</div>
-                    <div class="project-name">Precio: ${{Producto.price}}</div>
-                </div>
-            </a>
-        </div>
-        <div class="col-lg-4 col-sm-6" *ngIf="Producto">
-            <a class="portfolio-box" href="{{Producto.images[2]}}" title="{{Producto.title}}">
-                <img class="img-fluid" [ngSrc]=Producto.images[2] width="640" height="480"/>
-                <div class="portfolio-box-caption">
-                    <div class="project-category text-white-50">Producto: {{Producto.title}}</div>
-                    <div class="project-name">Precio: ${{Producto.price}}</div>
-                </div>
-            </a>
-        </div>
+      </ng-container>
     </div>
   </div>
